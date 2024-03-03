@@ -13,4 +13,4 @@ Este projeto é um dashboard completo desenvolvido usando Tailwind CSS e Next.js
 - **Integração com Google Fonts:** Estilize seu dashboard com facilidade usando a fonte Poppins do Google Fonts para uma aparência moderna e legível.
 ## Capturas de Tela 📸
 
-![Tela Inicial](screencapture-localhost-Corona-2024-02-17-11_36_33.png)
+![Tela De Login](screencapture-localhost-3000-2024-03-03-14_03_21.png)
