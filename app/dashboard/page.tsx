@@ -128,10 +128,10 @@ export default function Home() {
                 <DropdownTrigger className="outline-none">
                   <Link href="#">
                     <User
-                      name="Jane Doe"
-                      description="Product Designer"
+                      name="Arnaldo Tomo"
+                      description="Software Ingineer"
                       avatarProps={{
-                        src: "https://i.pravatar.cc/150?u=a04258114e29026702d"
+                        src: "https://avatars.githubusercontent.com/u/73796385?v=4"
                       }}
                     />
                   </Link>
