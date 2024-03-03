@@ -14,3 +14,4 @@ Este projeto é um dashboard completo desenvolvido usando Tailwind CSS e Next.js
 ## Capturas de Tela 📸
 
 ![Tela De Login](screencapture-localhost-3000-2024-03-03-14_03_21.png)
+![Tela De Dashboard](screencapture-localhost-3000-dashboard-2024-03-03-14_07_58.png)
