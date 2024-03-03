@@ -4,8 +4,8 @@ import Link from "next/link";
 export default function Login() {
   return (
     <>
-      <div className="hidden sm:block bg-gradient-to-t  from-green-500/10 via-green-600/10 to-lime-500/10 rounded-full w-[1000px] h-[200px] top-[90px] left-40 shadow-2xl blur-3xl z-20 absolute"></div>
-      <div className="hidden sm:block bg-gradient-to-t  from-blue-500/10 via-cyan-500/10 to-sky-500/10  w-full h-[200px] top-[200px]  z-10 absolute shadow-2xl blur-3xl"></div>
+      <div className="hidden sm:block bg-gradient-to-t rotate-20 animate-pulse from-green-500/20 via-yellow-600/10 to-purple-500/30 rounded-full w-[1000px] h-[200px] top-[90px] left-40 shadow-2xl blur-3xl z-20 absolute"></div>
+      <div className="hidden sm:block bg-gradient-to-t rotate-20 animate-pulse from-red-400/20 via-purple-500/20 to-sky-500/20  w-full h-[200px] top-[200px]  z-10 absolute shadow-2xl blur-3xl"></div>
       <div className=" sm:bg-gray-200 w-screen h-screen place-content-center grid grind-cols-1 align-top text-white  ">
         <div className="bg-white sm:shadow-md p-5 backdrop-blur-xl rounded-md h-[500px] w-[385px]  text-xl font-bold z-30">
           <div className="pt-5">
