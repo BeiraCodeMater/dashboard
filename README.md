@@ -11,3 +11,7 @@ Este projeto é um dashboard completo desenvolvido usando Tailwind CSS e Next.js
 - **Componentização:** O projeto é estruturado com uma abordagem baseada em componentes, tornando-o modular e fácil de manter. Os componentes podem ser reutilizados em diferentes partes do dashboard.
 
 - **Integração com Google Fonts:** Estilize seu dashboard com facilidade usando a fonte Poppins do Google Fonts para uma aparência moderna e legível.
+## Capturas de Tela 📸
+
+![Tela De Login](screencapture-localhost-3000-2024-03-03-14_03_21.png)
+![Tela De Dashboard](screencapture-localhost-3000-dashboard-2024-03-03-14_07_58.png)
