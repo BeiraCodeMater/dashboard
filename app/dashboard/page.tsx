@@ -1,6 +1,5 @@
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHippo } from "@fortawesome/fontawesome-common-types";
 
 import Link from "next/link";
 import {
@@ -12,7 +11,12 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Avatar,
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
   Divider,
   User,
   Dropdown,
@@ -37,24 +41,24 @@ export default function Home() {
   ];
 
   return (
-    <div className=" flex bg-gray-100 p-3 max-w-screen min-h-screen">
-      <div className="p-5 rounded-md min-h-screen xl:p-5 left-0  shadow-md w-[250px] bg-white hidden md:block">
+    <div className=" flex bg-gray-100 p-3 max-w-screen min-h-screen relative">
+      <div className=" p-5 rounded-md min-h-screen xl:p-5 left-0  shadow-md w-[250px] bg-white hidden md:block">
         <Link href={"/"}>
           <img src="/dark.png" alt="logo" />
         </Link>
         <Divider className="my-5"></Divider>
-        <ul className="space-y-3 divide-x-2 divide-solid">
+        <ul className="space-y-3  divide-solid">
           <li>
             <Link href={"/"}>
-              <div className=" bg-gray-200 rounded-md p-[7px] text-gray-500  shadow-gray-800 font-medium text-inherit flex items-center space-x-2">
+              <div className=" bg-black rounded-md p-[7px] text-white shadow-md  font-medium text-inherit flex items-center space-x-2">
                 <img src="./svg/chart.svg" width={20} />
                 <Divider orientation="vertical"></Divider>
                 Dashboard
               </div>
             </Link>
           </li>
-          <li>
-            <Link href={"/"}>
+          <li className=" active:is">
+            <Link href={"/dashboard"}>
               <div className="hover:bg-gray-200 rounded-md p-[7px] flex   hover:shadow-gray-800 font-medium text-inherit space-x-2">
                 <img src="./svg/user.svg" width={20} />
                 <Divider orientation="vertical"></Divider>
@@ -82,7 +86,7 @@ export default function Home() {
           </li>
         </ul>
       </div>
-      <div className="xl:ps-5 w-full">
+      <div className="xl:ps-5 w-full md:ps-5">
         <Navbar
           className="rounded-md bg-white shadow-md "
           isBordered
@@ -102,24 +106,12 @@ export default function Home() {
           </NavbarContent> */}
 
           <NavbarContent className="hidden sm:flex gap-4" justify="center">
-            <NavbarBrand>
-              <p className="font-bold text-inherit">1ACME</p>
+            {/* <NavbarBrand>
+              <p className="font-bold text-inherit">Home</p>
             </NavbarBrand>
             <NavbarItem>
-              <Link color="foreground" href="#">
-                Features
-              </Link>
-            </NavbarItem>
-            <NavbarItem isActive>
-              <Link href="#" aria-current="page">
-                Customers
-              </Link>
-            </NavbarItem>
-            <NavbarItem>
-              <Link color="foreground" href="#">
-                Integrations
-              </Link>
-            </NavbarItem>
+              <Link color="foreground" href="#"></Link>
+            </NavbarItem> */}
           </NavbarContent>
 
           <NavbarContent justify="end">
@@ -169,8 +161,182 @@ export default function Home() {
           </NavbarMenu>
         </Navbar>
         <div>
-          <div className="text-inherit text-blue-950 font-bold text-3xl mt-5">
-            DashBoard
+          <div className="flex items-center my-5 justify-between">
+            <div className="text-inherit flex text-blue-950 font-bold text-3xl">
+              DashBoard
+            </div>
+
+            <Button disabled color="primary" size="sm">
+              <img src="./svg/check.svg" width={30} />
+              User Vereficated
+            </Button>
+          </div>
+          <div className="grid xl:grid-cols-4 gap-5  ">
+            <div className="bg-white   outline-1 outline-red-200 rounded-md shadow-md p-4 ">
+              <div className="flex justify-between items-center mb-2">
+                <div className="bg-black p-2  rounded-xl">
+                  <img src="/svg/userplus.svg" width={30} />
+                </div>
+                <div className="">
+                  <p>Money Today</p>
+                  <p className="font-bold">$53K</p>
+                </div>
+              </div>
+              <Divider className="m-x-4" />
+              <div className="flex mt-2 items-center">
+                <div className="text-green-500 font-bold">+55% </div>
+                <div className="ms-2 text-sm">than last Week</div>
+              </div>
+            </div>
+            <div className="bg-white  outline-1 outline-red-200 rounded-md shadow-md p-4">
+              card1
+            </div>
+            <div className="bg-white  outline-1 outline-red-200 rounded-md shadow-md p-4">
+              card1
+            </div>
+            <div className="bg-white  outline-1 outline-red-200 rounded-md shadow-md p-4">
+              card1
+            </div>
+          </div>
+
+          <div className="bg-white  rounded-xl w-full  mt-5 shadow-md">
+            <div className="p-5 flex justify-between">
+              <div>
+                <Button color="primary" size="sm">
+                  <img src="./svg/userplus.svg" width={20} />
+                  Add User
+                </Button>
+              </div>
+              <div>
+                <input
+                  className="bg-gray-200 p-5 rounded-md w-[200px] h-[0px] outline-gray-400 font-normal text-sm"
+                  placeholder="Procurar Usuario"
+                />
+              </div>
+            </div>
+            <Table
+              isStriped
+              shadow="none"
+              aria-label="Example static collection table"
+            >
+              <TableHeader>
+                <TableColumn>NAME</TableColumn>
+                <TableColumn>ROLE</TableColumn>
+                <TableColumn>STATUS</TableColumn>
+              </TableHeader>
+              <TableBody>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+                <TableRow key="1">
+                  <TableCell>Tony Reichert</TableCell>
+                  <TableCell>CEO</TableCell>
+                  <TableCell>Active</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
           </div>
         </div>
       </div>
