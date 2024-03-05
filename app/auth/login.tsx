@@ -45,13 +45,15 @@ export default function Login() {
             </div>
 
             <div className="space-y-5">
-              <Button
-                className="b:block rounded-md"
-                fullWidth={true}
-                color="primary"
-              >
-                Sign in
-              </Button>
+              <Link href={"dashboard"}>
+                <Button
+                  className="b:block rounded-md"
+                  fullWidth={true}
+                  color="primary"
+                >
+                  Sign in
+                </Button>
+              </Link>
               <Divider></Divider>
               <Button
                 className="bg-gradient-to-r from-indigo-500 via-cyan-500 to-blue-500 text-white"
