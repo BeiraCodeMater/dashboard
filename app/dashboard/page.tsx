@@ -22,11 +22,27 @@ import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  image,
+  Tooltip,
+  Pagination
 } from "@nextui-org/react";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { service } from "../service/page";
+import { Product } from "../interface/page";
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [protucts, setProtuscts] = useState<Product[]>([]);
+
+  const get = async () => {
+    await service.getDummy().then((e) => {
+      setProtuscts(e.data.products);
+    });
+  };
+
+  useEffect(() => {
+    get();
+  }, []);
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -41,16 +57,17 @@ export default function Home() {
   ];
 
   return (
-    <div className=" flex bg-gray-100 p-3 max-w-screen min-h-screen relative">
+    <div className=" flex bg-gray-100 p-3 max-w-screen min-h-screen flex-row">
       <div className=" p-5 rounded-md min-h-screen xl:p-5 left-0  shadow-md w-[250px] bg-white hidden md:block">
         <Link href={"/"}>
           <img src="/dark.png" alt="logo" />
         </Link>
         <Divider className="my-5"></Divider>
+
         <ul className="space-y-3  divide-solid">
           <li>
             <Link href={"/"}>
-              <div className=" bg-black rounded-md p-[7px] text-white shadow-md  font-medium text-inherit flex items-center space-x-2">
+              <div className=" bg-zinc-900 rounded-md p-[7px] text-white shadow-md  font-medium text-inherit flex items-center space-x-2">
                 <img src="./svg/chart.svg" width={20} />
                 <Divider orientation="vertical"></Divider>
                 Dashboard
@@ -174,7 +191,7 @@ export default function Home() {
           <div className="grid xl:grid-cols-4 gap-5  ">
             <div className="bg-white   outline-1 outline-red-200 rounded-md shadow-md p-4 ">
               <div className="flex justify-between items-center mb-2">
-                <div className="bg-black p-2  rounded-xl">
+                <div className="bg-zinc-900 p-2  rounded-xl">
                   <img src="/svg/userplus.svg" width={30} />
                 </div>
                 <div className="">
@@ -204,7 +221,7 @@ export default function Home() {
               <div>
                 <Button color="primary" size="sm">
                   <img src="./svg/userplus.svg" width={20} />
-                  Add User
+                  Add User {protucts.length}
                 </Button>
               </div>
               <div>
@@ -214,129 +231,52 @@ export default function Home() {
                 />
               </div>
             </div>
+
             <Table
               isStriped
               shadow="none"
               aria-label="Example static collection table"
             >
               <TableHeader>
-                <TableColumn>NAME</TableColumn>
-                <TableColumn>ROLE</TableColumn>
-                <TableColumn>STATUS</TableColumn>
+                <TableColumn>Name</TableColumn>
+                <TableColumn>Category</TableColumn>
+                <TableColumn>Price</TableColumn>
+                <TableColumn>Stock</TableColumn>
+                <TableColumn>Rating</TableColumn>
+                <TableColumn>ACTION</TableColumn>
               </TableHeader>
               <TableBody>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
-                <TableRow key="1">
-                  <TableCell>Tony Reichert</TableCell>
-                  <TableCell>CEO</TableCell>
-                  <TableCell>Active</TableCell>
-                </TableRow>
+                {protucts.map((e) => (
+                  <TableRow key={`${e.id}`}>
+                    <TableCell>{e.title}</TableCell>
+                    <TableCell>{e.category}</TableCell>
+                    <TableCell>{e.price * 64}MZN</TableCell>
+                    <TableCell>{e.stock}</TableCell>
+                    <TableCell>{e.rating}</TableCell>
+                    <TableCell className="space-x-2">
+                      <Button isIconOnly size="sm" color="primary">
+                        <img src="./svg/eye.svg" width={20} />
+                      </Button>
+                      <Button isIconOnly size="sm" color="warning">
+                        <img src="./svg/edit.svg" width={20} />
+                      </Button>
+                      <Tooltip
+                        content={`${e.title}`}
+                        color="danger"
+                        placement="top-end"
+                      >
+                        <Button isIconOnly size="sm" color="danger">
+                          <img src="./svg/trash.svg" width={20} />
+                        </Button>
+                      </Tooltip>
+                    </TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
+            <div className="place-content-center items-center flex pb-5">
+              <Pagination showControls total={10} initialPage={1} />
+            </div>
           </div>
         </div>
       </div>
