@@ -49,7 +49,9 @@ export default function Login() {
                 setError(false);
                 service
                   .postDummy(values.username, values.password)
-                  .then((d) => console.log("dd", d.data.email))
+                  .then((d) => {
+                    Cookie.set("auth_token", d.token);
+                  })
                   .catch((e) => {
                     setError(true);
                     setSms(e.response.data.message);
