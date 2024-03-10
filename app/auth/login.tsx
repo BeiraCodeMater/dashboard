@@ -6,14 +6,15 @@ import { service } from "../service/page";
 import { useState } from "react";
 import Keys from "../components/keys";
 import Password from "../components/password";
+import { useRouter } from "next/navigation";
+import { stringify } from "querystring";
 
 export default function Login() {
   const [error, setError] = useState<Boolean>(false);
   const [load, setLoad] = useState<Boolean>(false);
   const [sms, setSms] = useState<String>("");
-  const btn = () => {
-    console.log("btn");
-  };
+
+  const router = useRouter();
   return (
     <>
       <div className="hidden sm:block bg-gradient-to-t rotate-20 animate-pulse from-green-500/20 via-yellow-600/10 to-purple-500/30 rounded-full w-[1000px] h-[200px] top-[90px] left-40 shadow-2xl blur-3xl z-20 absolute"></div>
@@ -50,7 +51,12 @@ export default function Login() {
                 service
                   .postDummy(values.username, values.password)
                   .then((d) => {
-                    Cookie.set("auth_token", d.token);
+                    router.push("dashboard");
+                    localStorage.setItem(
+                      "auth_token",
+                      JSON.stringify(d.data.token)
+                    );
+                    localStorage.setItem("user", JSON.stringify(d.data));
                   })
                   .catch((e) => {
                     setError(true);
