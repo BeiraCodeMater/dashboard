@@ -55,6 +55,7 @@ export default function Home() {
     "Help & Feedback",
     "Log Out"
   ];
+  const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <div className=" flex bg-gray-100 p-3 max-w-screen min-h-screen flex-row">
@@ -137,10 +138,10 @@ export default function Home() {
                 <DropdownTrigger className="outline-none">
                   <Link href="#">
                     <User
-                      name="Arnaldo Tomo"
+                      name={`Hello,${user.username}`}
                       description="Software Ingineer"
                       avatarProps={{
-                        src: "https://avatars.githubusercontent.com/u/73796385?v=4"
+                        src: `${user.image}`
                       }}
                     />
                   </Link>
@@ -181,6 +182,7 @@ export default function Home() {
           <div className="flex items-center my-5 justify-between">
             <div className="text-inherit flex text-blue-950 font-bold text-3xl">
               DashBoard
+              {user.email}
             </div>
 
             <Button disabled color="primary" size="sm">
